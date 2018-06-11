@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".SignupActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:text="Sign in" />
+
+    <AutoCompleteTextView
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="25dp"
+        android:hint="Email"/>
+
+
+    <EditText
+        android:id="@+id/psw1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        />
+    <EditText
+        android:id="@+id/psw2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginTop="15dp"
+        android:hint="Conform Password" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Submit"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:layout_marginTop="23dp"
+        android:onClick="userReg"/>
+
+
+
+</LinearLayout>
