@@ -16,7 +16,15 @@
         android:textSize="30dp"
         android:layout_marginTop="5dp"
         android:textAlignment="center"
-        android:text="Sign in" />
+        android:text="Sign up" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginTop="20dp"
+        android:hint="Name"
+        />
 
     <AutoCompleteTextView
         android:id="@+id/Email"
