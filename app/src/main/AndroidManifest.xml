@@ -11,22 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".HomeActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-
-
-        <activity android:name=".SignupActivity">
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
-
-        </activity>
-
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Location1Activity" />
+        <activity android:name=".Location2Activity" />
+        <activity android:name=".Location3Activity" />
+        <activity android:name=".Location4Activity" />
+        <activity android:name=".Location5Activity" />
+        <activity android:name=".Location6Activity" />
+        <activity android:name=".ConformActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.example.surejahit.mytripbooking;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -109,10 +110,14 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_signup) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+               Intent i1 = new Intent(this,SignupActivity.class);
+               startActivity(i1);
 
+        } else if (id == R.id.nav_login) {
+              Intent i2 = new Intent(this,LoginActivity.class);
+              startActivity(i2);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -147,38 +152,33 @@ public class HomeActivity extends AppCompatActivity
         ArrayList results = new ArrayList<DataObject>();
 
         int index = 0;
-        DataObject obj = new DataObject(getString(R.string.top1) , getString(R.string.des1),R.drawable.kerala);
+        DataObject obj = new DataObject(getString(R.string.top1) , getString(R.string.des1),R.drawable.manali);
         results.add(index, obj);
         index++;
 
-        obj = new DataObject(getString(R.string.top2), getString(R.string.des2),R.drawable.manali);
+        obj = new DataObject(getString(R.string.top2), getString(R.string.des2),R.drawable.paris);
         results.add(index, obj);
         index++;
 
         obj = new DataObject(getString(R.string.top3) , getString(R.string.des3),R.drawable.swiss);
         results.add(index, obj);
         index++;
-        obj = new DataObject(getString(R.string.top4) , getString(R.string.des4),R.drawable.uk);
+        obj = new DataObject(getString(R.string.top4) , getString(R.string.des4),R.drawable.newyork);
         results.add(index, obj);
         index++;
 
-        obj = new DataObject(getString(R.string.top5) , getString(R.string.des5),R.drawable.paris);
+        obj = new DataObject(getString(R.string.top5) , getString(R.string.des5),R.drawable.london);
         results.add(index, obj);
         index++;
 
-        obj = new DataObject(getString(R.string.top3) , getString(R.string.des3),R.drawable.uk);
+        obj = new DataObject(getString(R.string.top6) , getString(R.string.des6),R.drawable.tokyo);
         results.add(index, obj);
         index++;
 
-        obj = new DataObject(getString(R.string.top4) , getString(R.string.des4),R.drawable.manali);
-        results.add(index, obj);
-        index++;
-
-        obj = new DataObject(getString(R.string.top5) , getString(R.string.des5),R.drawable.manali);
-        results.add(index, obj);
-        index++;
 
 
         return results;
     }
+
+
 }

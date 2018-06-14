@@ -7,18 +7,45 @@
     <string name="action_settings">Settings</string>
 
     <string name="app_name">MyTripBooking</string>
-    <string name="top1"><b>London</b></string>
+    <string name="top1"><b>Manali</b></string>
     <string name="top2"><b>Paris</b></string>
     <string name="top3"><b>Switzerland</b></string>
-    <string name="top4"><b>US</b></string>
-    <string name="top5"><b>Dubai</b></string>
-    <string name="des1"><u>London</u></string>
-    <string name="des2"><u>Paris</u></string>
-    <string name="des3"><u>Switzerland</u></string>
-    <string name="des4"><u>US</u></string>
-    <string name="des5"><u>Dubai</u></string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="top4"><b>New york</b></string>
+    <string name="top5"><b>London</b></string>
+    <string name="top6"><b>Tokyo</b></string>
 
+    <string name="des1">
+         Dates : 5th July - 25th July \n
+         No of days : 20\n
+        Price/person : 30,000 INR
+    </string>
+
+    <string name="des2">
+        Dates : 8th July - 5th August \n
+        No of days : 29 \n
+        Price/person : 5,00,000 INR</string>
+
+    <string name="des3">
+        Dates : 5th August - 25th August \n
+        No of days : 20 \n
+        Price/person : 4,50,000 INR</string>
+
+    <string name="des4">
+        Dates : 10th August - 27th August \n
+        No of days : 20 \n
+        Price/person : 1,00,000 INR</string>
+
+    <string name="des5">
+        Dates : 13th Dec. - 31st Dec. \n
+        No of days : 18 \n
+        Price/person : 2,50,000 INR</string>
+
+    <string name="des6">
+        Dates : 9th Sept. - 2nd Oct.\n
+        No of days : 24 \n
+        Price/person : 2,00,000 INR</string>
+
+    <string name="title_activity_home">HomeActivity</string>
 
 
 </resources>

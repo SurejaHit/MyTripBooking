@@ -62,7 +62,7 @@
     android:id="@+id/btn12"
     android:layout_width="120dp"
     android:layout_height="50dp"
-    android:text="Submit"
+    android:text="Sign Up"
     android:background="#0000ff"
     android:textColor="#ffffff"
     android:textSize="18dp"
