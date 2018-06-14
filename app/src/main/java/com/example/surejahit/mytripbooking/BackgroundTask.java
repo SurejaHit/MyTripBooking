@@ -2,6 +2,7 @@ package com.example.surejahit.mytripbooking;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -19,21 +20,22 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+import static android.support.v4.content.ContextCompat.startActivity;
+
 public class BackgroundTask extends AsyncTask<String,Void,String> {
 
 
     AlertDialog altD;
     Context ctx;
 
-    BackgroundTask(Context ctx)
-    {
-       this.ctx = ctx;
+    BackgroundTask(Context ctx) {
+        this.ctx = ctx;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        String signup_url = "http://10.0.2.2/webapp/register.php";
-        String login_url = "http://10.0.2.2/webapp/login.php";
+        String signup_url = "http://127.0.0.1/webapp/register.php";
+        String login_url = "http://127.0.0.1/webapp/login.php";
         String method = params[0];
 
         if (method.equals("Register")) {
@@ -59,7 +61,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 InputStream is1 = http1.getInputStream();
                 is1.close();
                 return "Registration successful!!!";
-            }catch (MalformedURLException m){
+            } catch (MalformedURLException m) {
                 m.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -80,7 +82,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 BufferedWriter bf2 = new BufferedWriter(new OutputStreamWriter(os2, "UTF-8"));
 
 
-                String data2 = URLEncoder.encode("emailL", "UTF-8") + "=" + URLEncoder.encode(emailL, "UTF-8") +"&"+
+                String data2 = URLEncoder.encode("emailL", "UTF-8") + "=" + URLEncoder.encode(emailL, "UTF-8") + "&" +
                         URLEncoder.encode("passL", "UTF-8") + "=" + URLEncoder.encode(passL, "UTF-8");
                 bf2.write(data2);
                 bf2.flush();
@@ -94,11 +96,13 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 String line = "";
 
                 while ((line = br.readLine()) != null) {
-                    response+=line;
+                    response += line;
                 }
                 br.close();
                 is2.close();
                 http2.disconnect();
+
+
                 return response;
 
             } catch (MalformedURLException i) {
@@ -109,31 +113,27 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
         }
 
-    return null;
+        return null;
     }
 
-    protected void onPreExecute()
-    {
+    protected void onPreExecute() {
         altD = new AlertDialog.Builder(ctx).create();
         altD.setTitle("Login Information....");
     }
 
 
-      protected void onProgressUpdate(Void... values){
+    protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
-      }
+    }
 
-      protected void onPostExecute(String result)
-      {
-          if(result.equals("Registration successful!!!")) {
-              Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-          }
-          else {
-              altD.setMessage(result);
-               altD.show();
-              }
+    protected void onPostExecute(String result) {
+        if (result.equals("Registration successful!!!")) {
+            Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
+        } else {
+            altD.setMessage(result);
+            altD.show();
 
-      }
+        }
 
+    }
 }
-

@@ -58,5 +58,13 @@
         android:textColor="#0000ff"
         android:text="are you a new user?" />
 
-
+<Button
+    android:id="@+id/btn12"
+    android:layout_width="120dp"
+    android:layout_height="50dp"
+    android:text="Submit"
+    android:background="#0000ff"
+    android:textColor="#ffffff"
+    android:textSize="18dp"
+    android:layout_marginTop="23dp"/>
 </LinearLayout>

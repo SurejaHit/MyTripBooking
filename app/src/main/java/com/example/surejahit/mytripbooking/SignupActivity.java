@@ -30,7 +30,7 @@ public class SignupActivity extends AppCompatActivity {
        String method = "Register";
         BackgroundTask b1 = new BackgroundTask(this);
        b1.execute(method,username,emailid,password);
-       startActivity(new Intent(this,MainActivity.class));
+       startActivity(new Intent(this,HomeActivity.class));
        finish();
     }
 
