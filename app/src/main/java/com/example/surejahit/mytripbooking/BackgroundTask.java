@@ -28,14 +28,15 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     AlertDialog altD;
     Context ctx;
 
+
     BackgroundTask(Context ctx) {
         this.ctx = ctx;
     }
 
     @Override
     protected String doInBackground(String... params) {
-        String signup_url = "http://127.0.0.1/webapp/register.php";
-        String login_url = "http://127.0.0.1/webapp/login.php";
+        String signup_url = "http://10.0.2.2/webapp/register.php";
+        String login_url = "http://10.0.2.2/webapp/login.php";
         String method = params[0];
 
         if (method.equals("Register")) {

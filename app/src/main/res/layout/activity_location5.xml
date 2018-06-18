@@ -1,23 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    tools:context=".Location5Activity">
+    android:background="#03a9f4"
+    tools:context=".Location2Activity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="London"
-        android:textSize="30sp"/>
+        android:text="London\n Location : England\n Price/person : 2,50,000 INR\nNo of days:18\n Food and Accomodation will be provide"
+        android:textAlignment="center"
+        android:background="@drawable/myborder"
+        android:id="@+id/txt1"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter no of Person"
+        android:id="@+id/txt2"
+        android:layout_below="@+id/txt1"
+        android:textColor="#ff5722"
+        android:textSize="20sp"
+        android:textAlignment="center" />
+    <EditText
+        android:id="@+id/noPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt2"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noPerson"
+        android:textSize="15sp"
+        android:id="@+id/txtshow"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ok"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/noPerson"
+        android:text="OK"
+        android:layout_marginLeft="70dp"
+        android:textColor="#ff0000"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/confbtn"
         android:text="Conform"
+        android:layout_below="@+id/noPerson"
+        android:layout_toRightOf="@+id/ok"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="60dp"
         android:textColor="#ff0000"/>
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linearid"
+            android:layout_marginVertical="50dp">
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

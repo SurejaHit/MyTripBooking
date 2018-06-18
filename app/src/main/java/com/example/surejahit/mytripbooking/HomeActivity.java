@@ -25,6 +25,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,17 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+
+/*        profileB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(HomeActivity.this,ProfileActivity.class);
+                startActivity(i1);
+            }
+        });
+*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
@@ -62,7 +74,6 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -72,6 +83,14 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+/*
+     public void profStart(View view){
+
+        Intent i = new Intent(HomeActivity.this,UserProfileActivity.class);
+        startActivity(i);
+        finish();
+    }
+ */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -118,8 +137,9 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_login) {
               Intent i2 = new Intent(this,LoginActivity.class);
               startActivity(i2);
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.profile) {
+            Intent i2 = new Intent(this,UserProfileActivity.class);
+            startActivity(i2);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -137,6 +157,8 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
+
+
         super.onResume();
         ((MyRecyclerViewAdapter) mAdapter).setOnItemClickListener(new MyRecyclerViewAdapter
                 .MyClickListener() {
