@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -28,6 +29,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     AlertDialog altD;
     Context ctx;
 
+   public String demo;
 
     BackgroundTask(Context ctx) {
         this.ctx = ctx;
@@ -37,6 +39,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     protected String doInBackground(String... params) {
         String signup_url = "http://10.0.2.2/webapp/register.php";
         String login_url = "http://10.0.2.2/webapp/login.php";
+
         String method = params[0];
 
         if (method.equals("Register")) {
@@ -67,9 +70,12 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (method.equals("Login")) {
+
+        }
+        else if (method.equals("Login")) {
             String emailL = params[1]; //This values will go into login.php file
             String passL = params[2];
+               demo = emailL;
 
             try {
                 URL u2 = new URL(login_url);
@@ -102,8 +108,6 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 br.close();
                 is2.close();
                 http2.disconnect();
-
-
                 return response;
 
             } catch (MalformedURLException i) {
@@ -128,13 +132,36 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     }
 
     protected void onPostExecute(String result) {
+        super.onPostExecute(result);
         if (result.equals("Registration successful!!!")) {
             Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-        } else {
+            Intent i2 = new Intent(ctx,LoginActivity.class);
+            ctx.startActivity(i2);
+
+        }
+         /*else{
             altD.setMessage(result);
             altD.show();
+        }*/
+
+        else if (result.equalsIgnoreCase("Data Matched"))
+        {
+
+            Intent i1 = new Intent(ctx,UserProfileActivity.class);
+            i1.putExtra("name",demo);
+            ctx.startActivity(i1);
+            Toast.makeText(ctx, "This is Good", Toast.LENGTH_LONG).show();
+            //Demo d = new Demo(demo);
+           Userlog usern = new Userlog(ctx);
+            usern.setName(demo);
 
         }
 
+        else if(result.equalsIgnoreCase("Login Failed...Try again"))
+        {
+            Toast.makeText(ctx, "NOPE This isn't GOOOOOd", Toast.LENGTH_LONG).show();
+
+        }
     }
-}
+
+   }

@@ -16,6 +16,13 @@
         android:background="@drawable/myborder"
         android:id="@+id/txt1"
         android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date1"
+        android:textSize="15sp"
+        android:inputType="date"
+        android:text="18/10/2018"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -62,7 +69,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp">
+        android:layout_marginTop="300dp">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -2,6 +2,8 @@ package com.example.surejahit.mytripbooking;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +28,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -138,8 +141,8 @@ public class HomeActivity extends AppCompatActivity
               Intent i2 = new Intent(this,LoginActivity.class);
               startActivity(i2);
         } else if (id == R.id.profile) {
-            Intent i2 = new Intent(this,UserProfileActivity.class);
-            startActivity(i2);
+           // Intent i2 = new Intent(this,UserProfileActivity.class);
+            //startActivity(i2);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
@@ -157,6 +160,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onResume() {
+
 
 
         super.onResume();
@@ -201,6 +205,5 @@ public class HomeActivity extends AppCompatActivity
 
         return results;
     }
-
 
 }

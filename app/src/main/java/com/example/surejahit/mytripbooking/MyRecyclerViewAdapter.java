@@ -11,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import static android.support.v4.content.ContextCompat.startActivity;
+import static com.example.surejahit.mytripbooking.R.string.des1;
 
 public class MyRecyclerViewAdapter extends RecyclerView
         .Adapter<MyRecyclerViewAdapter
@@ -47,34 +50,40 @@ public class MyRecyclerViewAdapter extends RecyclerView
             myClickListener.onItemClick(getAdapterPosition(), v);
 
 
-            final Intent intent;
+            final  Intent intent ;
             switch (getAdapterPosition()){
                 case 0:
-                    intent =  new Intent(context,Location1Activity.class);
-                    break;
+                         intent = new Intent(context, Location1Activity.class);
+                      break;
 
                 case 1:
                     intent =  new Intent(context, Location2Activity.class);
+
                     break;
                 case 2:
                     intent =  new Intent(context, Location3Activity.class);
+
                     break;
                 case 3:
                     intent =  new Intent(context, Location4Activity.class);
+
                     break;
                 case 4:
                     intent =  new Intent(context, Location5Activity.class);
+
                     break;
                 case 5:
                     intent =  new Intent(context, Location6Activity.class);
+
                     break;
+
                     default:
                         intent =  new Intent(context, Location1Activity.class);
+
                         break;
 
             }
             context.startActivity(intent);
-
         }
 
 

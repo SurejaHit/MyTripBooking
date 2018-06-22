@@ -8,6 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Location6Activity extends AppCompatActivity {
 
@@ -30,6 +34,13 @@ public class Location6Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                    TextView date1 = findViewById(R.id.date1);
+
+                    SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+                    Date todayDate = new Date();
+                    String thisDate = currentDate.format(todayDate);
+
+                    if (thisDate.compareTo(date1.getText().toString()) < 0) {
                 String str = edt.getText().toString();
                 int a = Integer.parseInt(str);
                 textview.setText("You have to pay = "+a*200000);
@@ -57,6 +68,9 @@ public class Location6Activity extends AppCompatActivity {
 
                 }
 
+            }else {
+                        Toast.makeText(getApplicationContext(), "Registration is closed", Toast.LENGTH_LONG).show();
+                    }
             }
         });
 

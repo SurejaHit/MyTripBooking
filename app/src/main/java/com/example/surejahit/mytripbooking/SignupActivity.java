@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -20,10 +21,25 @@ public class SignupActivity extends AppCompatActivity {
         pass1 = (EditText) findViewById(R.id.psw1);
         pass2 = (EditText) findViewById(R.id.psw2);
 
+
+
     }
 
     public void userReg(View view)
     {
+        String str1 = pass1.getText().toString();
+        String str2 = pass2.getText().toString();
+        String str3 = uname.getText().toString();
+        String str4 = eml.getText().toString();
+
+
+        if(str1.equals("") || str2.equals("") || str3.equals("") || str4.equals("")){
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
+        }
+        else if(!str1.equals(str2)) {
+            Toast.makeText(this, "Password Not matching", Toast.LENGTH_SHORT).show();
+        }
+        else{
         username =uname.getText().toString();
         emailid=eml.getText().toString();
         password=pass1.getText().toString();
@@ -32,6 +48,7 @@ public class SignupActivity extends AppCompatActivity {
        b1.execute(method,username,emailid,password);
        startActivity(new Intent(this,HomeActivity.class));
        finish();
+    }
     }
 
 }

@@ -8,8 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Location5Activity extends AppCompatActivity {
 
@@ -34,34 +38,43 @@ public class Location5Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String str = edt.getText().toString();
-                int a = Integer.parseInt(str);
-                textview.setText("You have to pay = "+a*250000);
+                TextView date1 = findViewById(R.id.date1);
 
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearid);      //find the linear layout
-                linearLayout.removeAllViews();
+                SimpleDateFormat currentDate = new SimpleDateFormat("dd/MM/yyyy");
+                Date todayDate = new Date();
+                String thisDate = currentDate.format(todayDate);
+
+                if (thisDate.compareTo(date1.getText().toString()) < 0) {
+
+                    String str = edt.getText().toString();
+                    int a = Integer.parseInt(str);
+                    textview.setText("You have to pay = " + a * 250000);
+
+                    LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearid);      //find the linear layout
+                    linearLayout.removeAllViews();
 
 
-                for (int i = 1; i <=a; i++)
-                {
+                    for (int i = 1; i <= a; i++) {
                     /*TextView tv = new TextView(Location2Activity.this);
                     tv.setText("Dynamic TextView" + i);
                     tv.setId(i);
                     linearLayout.addView(tv);
                      */
 
-                    EditText ed = new EditText(Location5Activity.this);
-                    ed.setId(i);
-                    ed.setHint("name : "+i);
-                    linearLayout.addView(ed);
+                        EditText ed = new EditText(Location5Activity.this);
+                        ed.setId(i);
+                        ed.setHint("name : " + i);
+                        linearLayout.addView(ed);
 
-                    EditText ed1 = new EditText(Location5Activity.this);
-                    ed1.setId(i+1);
-                    ed1.setHint("Aadhar no : "+i);
-                    linearLayout.addView(ed1);
+                        EditText ed1 = new EditText(Location5Activity.this);
+                        ed1.setId(i + 1);
+                        ed1.setHint("Aadhar no : " + i);
+                        linearLayout.addView(ed1);
 
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Registration is closed", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
