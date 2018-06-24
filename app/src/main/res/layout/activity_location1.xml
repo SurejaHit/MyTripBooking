@@ -19,10 +19,10 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/date1"
+    android:id="@+id/dates"
     android:textSize="15sp"
     android:inputType="date"
-    android:text="28/06/2018"/>
+    android:text="18/06/2018"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:id="@+id/txt2"
         android:layout_below="@+id/txt1"
         android:textColor="#ff5722"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textAlignment="center" />
     <EditText
         android:id="@+id/noPerson"
@@ -46,12 +46,31 @@
     android:textSize="15sp"
     android:id="@+id/txtshow"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/noPerson"
+        android:textAlignment="center"
+        android:textColor="#ff5722"
+        android:text="Enter Email:"
+        android:id="@+id/txtview2"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtview2"
+        android:textSize="15sp"
+        android:hint="Email"
+        android:id="@+id/edtem"/>
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ok"
         android:layout_marginTop="18dp"
-        android:layout_below="@+id/noPerson"
+        android:layout_below="@+id/edtem"
         android:text="next"
         android:layout_marginLeft="70dp"
         android:textColor="#ff0000"/>
@@ -61,11 +80,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/confbtn"
         android:text="Conform"
-        android:layout_below="@+id/noPerson"
+        android:layout_below="@+id/edtem"
         android:layout_toRightOf="@+id/ok"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="60dp"
-        android:onClick="tripCall"
         android:textColor="#ff0000"/>
 
     <ScrollView

@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="#9E9E9E"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="18sp"
-    android:textColor="#ffffff"
+    android:textColor="#87ceeb"
     android:textAlignment="center"
     android:layout_marginTop="10dp"
     android:id="@+id/Unametxt"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="click me"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:text="Profile"
+        android:layout_marginTop="10dp"
         android:background="#FF4081"
+        android:layout_marginLeft="50dp"
+        android:id="@+id/showbtn"
         android:onClick="Jsonmethod"
         android:textColor="#ffffff"
         android:textSize="15sp"/>
@@ -28,40 +34,130 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="100dp"
+        android:layout_toRightOf="@+id/showbtn"
         android:background="#ff4081"
+        android:id="@+id/logoutbtn"
         android:textColor="#ffffff"
         android:onClick="Logoutmethod"
         android:text="Logout"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/updatebtn"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_below="@+id/showbtn"
+            android:background="#FF4081"
+            android:textColor="#ffffff"
+            android:onClick="Updatemethod"
+            android:text="UPDATE"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deletebtn"
+            android:layout_below="@+id/logoutbtn"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="100dp"
+            android:layout_toRightOf="@+id/updatebtn"
+            android:background="#FF4081"
+            android:textColor="#ffffff"
+            android:onClick="Deletemethod"
+            android:text="DELETE"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:text="Email :"
+        android:textSize="15sp"
+        android:background="#87ceeb"
+        android:textAlignment="center" />
         <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="#ffffff"
         android:id="@+id/txtemail"/>
+
+<TextView
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="Trip :"
+        android:textSize="15sp"
+        android:background="#87ceeb"
+        android:textAlignment="center" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="#ffffff"
             android:id="@+id/txttrip"/>
-        <TextView
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="No of person :"
+        android:textSize="15sp"
+        android:background="#87ceeb"
+        android:textAlignment="center" />
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="#ffffff"
             android:id="@+id/txtno_person"/>
-        <TextView
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="Name of person:"
+        android:textSize="15sp"
+        android:background="#87ceeb"
+        android:textAlignment="center" />
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="#ffffff"
             android:id="@+id/txtp_name"/>
-        <TextView
+
+<TextView
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="Aadhar no of person :"
+        android:textSize="15sp"
+        android:background="#87ceeb"
+        android:textAlignment="center" />
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="#ffffff"
             android:id="@+id/txtaadhar_no"/>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="If you want to edit profile then
+        make changes and press update button."/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="If you want to delete profile then
+         press delete button."/>
 </LinearLayout>
+</ScrollView>

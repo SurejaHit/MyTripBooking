@@ -1,8 +1,8 @@
 package com.example.surejahit.mytripbooking;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,28 +10,45 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Location2Activity extends AppCompatActivity {
 
-    LinearLayout linearLayout;
-    EditText edt;
-    Button btn,okay;
+
+    EditText edt,ed[],ed1[];
+    Button conformbtn, okaybtn;
     TextView textview;
+    EditText email00;
+    com.android.volley.RequestQueue rq;
+    String insert_url = "http://10.0.2.2/webapp/trip.php";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location2);
+        email00 = findViewById(R.id.edtem);
 
-
+        rq = Volley.newRequestQueue(getApplicationContext());
         edt = findViewById(R.id.noPerson);
-        okay = findViewById(R.id.ok);
-        btn = (Button)findViewById(R.id.confbtn);
-         textview = findViewById(R.id.txtshow);
+        okaybtn = findViewById(R.id.ok);
+        conformbtn = (Button) findViewById(R.id.confbtn);
+        textview = findViewById(R.id.txtshow);
 
 
-        okay.setOnClickListener(new View.OnClickListener() {
+        okaybtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -51,22 +68,19 @@ public class Location2Activity extends AppCompatActivity {
                     linearLayout.removeAllViews();
 
 
-                    for (int i = 1; i <= a; i++) {
-                    /*TextView tv = new TextView(Location2Activity.this);
-                    tv.setText("Dynamic TextView" + i);
-                    tv.setId(i);
-                    linearLayout.addView(tv);
-                     */
+                    ed = new EditText[a];
+                    ed1 = new EditText[a];
+                    for (int i = 0; i < a; i++) {
 
-                        EditText ed = new EditText(Location2Activity.this);
-                        ed.setId(i);
-                        ed.setHint("name : " + i);
-                        linearLayout.addView(ed);
+                        ed[i] = new EditText(Location2Activity.this);
+                        //ed[i].setId(i);
+                        ed[i].setHint("name : " + i);
+                        linearLayout.addView(ed[i]);
 
-                        EditText ed1 = new EditText(Location2Activity.this);
-                        ed1.setId(i + 1);
-                        ed1.setHint("Aadhar no : " + i);
-                        linearLayout.addView(ed1);
+                        ed1[i] = new EditText(Location2Activity.this);
+                        //ed1[i].setId(i + 1);
+                        ed1[i].setHint("Aadhar no : " + i);
+                        linearLayout.addView(ed1[i]);
 
                     }
 
@@ -77,10 +91,73 @@ public class Location2Activity extends AppCompatActivity {
         });
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        conformbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1 = new Intent(Location2Activity.this,ConformActivity.class);
+
+                StringRequest request1;
+                edt = findViewById(R.id.noPerson);
+                String str = edt.getText().toString();
+                final int no_person = Integer.parseInt(str);
+
+                String arr1[] = new String[no_person];
+                String arr2[] = new String[no_person];
+                String names,aadhars;
+
+                for (int i = 0; i < no_person; i++) {
+                    arr1[i] = ed[i].getText().toString();
+                    arr2[i] = ed1[i].getText().toString();
+                }
+
+                names = arr1[0];
+                aadhars = arr2[0];
+
+                for(int i=0;i<no_person;i++)
+                {
+                    names = names + ", "+arr1[i];
+                    aadhars = aadhars + ", "+arr2[i];
+                }
+
+
+                final String finalNames = names;
+                final String finalAadhars = aadhars;
+                request1 = new StringRequest(Request.Method.POST, insert_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.names().get(0).equals("success")) {
+                                Toast.makeText(getApplicationContext(), "Successfully inserted", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Insertion failed", Toast.LENGTH_LONG).show();
+
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        HashMap<String, String> hashMap = new HashMap<String, String>();
+                        hashMap.put("data1",email00.getText().toString());
+                        hashMap.put("data2","Paris");
+                        hashMap.put("data3",String.valueOf(no_person));
+                        hashMap.put("data4", finalNames);
+                        hashMap.put("data5", finalAadhars);
+                        return hashMap;
+                    }
+                };
+                rq.add(request1);
+
+
+
+                Intent i1 = new Intent(Location2Activity.this, ConformActivity.class);
                 startActivity(i1);
             }
         });

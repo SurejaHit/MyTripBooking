@@ -7,6 +7,11 @@ import android.os.AsyncTask;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -84,10 +89,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 http2.setDoOutput(true);
                 http2.setDoInput(true);
                 OutputStream os2 = http2.getOutputStream();
-
-
                 BufferedWriter bf2 = new BufferedWriter(new OutputStreamWriter(os2, "UTF-8"));
-
 
                 String data2 = URLEncoder.encode("emailL", "UTF-8") + "=" + URLEncoder.encode(emailL, "UTF-8") + "&" +
                         URLEncoder.encode("passL", "UTF-8") + "=" + URLEncoder.encode(passL, "UTF-8");
